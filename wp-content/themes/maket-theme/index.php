@@ -104,8 +104,7 @@
 						<div class="col-12 col-lg-7 col-xl-7">
 							<div class="advantages">
 								<div class="advantages-title">
-									<h1>Все материалы для макетирования
-									по низкой цене и в наличии в Москве</h1>
+									<h1><?php the_title(); ?></h1>
 								</div>
 								<!-- /.advantages-title -->
 								<div class="advantages-subtitle">
@@ -118,36 +117,33 @@
 									<div class="col-12 col-md-6">
 										<div class="advantages-block">
 											<div class="advantages-block__img">
-												<img src="<?php echo get_template_directory_uri();?>/img/main/img-1.png" alt="">
+												<img src="<?php the_field('advantage_img_1', 2); ?>" alt="">
 											</div>
 											<!-- /.advantages-block__img -->
 											<div class="advantages-block__text">
-												На рынке макетирования
-												более 5 лет!
+												<?php the_field('advantage_1', 2); ?>
 											</div>
 											<!-- /.advantages-block__text -->
 										</div>
 										<!-- /.advantages-block -->
 										<div class="advantages-block">
 											<div class="advantages-block__img">
-												<img src="<?php echo get_template_directory_uri();?>/img/main/img-2.png" alt="">
+												<img src="<?php the_field('advantage_img_2', 2); ?>" alt="">
 											</div>
 											<!-- /.advantages-block__img -->
 											<div class="advantages-block__text">
-												Профессиональный подбор
-												необходимого материала
+												<?php the_field('advantage_2', 2); ?>	
 											</div>
 											<!-- /.advantages-block__text -->
 										</div>
 										<!-- /.advantages-block -->
 										<div class="advantages-block">
 											<div class="advantages-block__img">
-												<img src="<?php echo get_template_directory_uri();?>/img/main/img-3.png" alt="">
+												<img src="<?php the_field('advantage_img_3', 2); ?>" alt="">
 											</div>
 											<!-- /.advantages-block__img -->
 											<div class="advantages-block__text">
-												Дополнительные скидки
-												студентам
+												<?php the_field('advantage_3', 2); ?>	
 											</div>
 											<!-- /.advantages-block__text -->
 										</div>
@@ -157,36 +153,33 @@
 									<div class="col-12 col-md-6">
 										<div class="advantages-block">
 											<div class="advantages-block__img">
-												<img src="<?php echo get_template_directory_uri();?>/img/main/img-4.png" alt="">
+												<img src="<?php the_field('advantage_img_4', 2); ?>" alt="">
 											</div>
 											<!-- /.advantages-block__img -->
 											<div class="advantages-block__text">
-												Каждый материал имеет
-												сертификат качества
+												<?php the_field('advantage_4', 2); ?>
 											</div>
 											<!-- /.advantages-block__text -->
 										</div>
 										<!-- /.advantages-block -->
 										<div class="advantages-block">
 											<div class="advantages-block__img">
-												<img src="<?php echo get_template_directory_uri();?>/img/main/img-5.png" alt="">
+												<img src="<?php the_field('advantage_img_5', 2); ?>" alt="">
 											</div>
 											<!-- /.advantages-block__img -->
 											<div class="advantages-block__text">
-												Доставка по Москве
-												в день обращения
+												<?php the_field('advantage_5', 2); ?>
 											</div>
 											<!-- /.advantages-block__text -->
 										</div>
 										<!-- /.advantages-block -->
 										<div class="advantages-block advantages-block_last">
 											<div class="advantages-block__img">
-												<img src="<?php echo get_template_directory_uri();?>/img/main/img-6.png" alt="">
+												<img src="<?php the_field('advantage_img_6', 2); ?>" alt="">
 											</div>
 											<!-- /.advantages-block__img -->
 											<div class="advantages-block__text">
-												Быстрая доставка
-												в регионы
+												<?php the_field('advantage_6', 2); ?>
 											</div>
 											<!-- /.advantages-block__text -->
 										</div>
@@ -242,19 +235,33 @@
 			<!-- /.section-title -->
 			<div class="container">
 				<img src="<?php echo get_template_directory_uri();?>/img/materials/materials-img.png" class="materials-img lego-img" alt="">
+		
 			<!-- Слайдер в секции -->
 				<div class="slider">
-					<div class="slider-block">
+
+				<?php
+				global $post;
+
+				$myposts = get_posts([ 
+					'numberposts' => 10,
+					'category_name' => 'materials'
+				]);
+
+				if( $myposts ){
+					foreach( $myposts as $post ){
+						setup_postdata( $post );
+						?>
+						<div class="slider-block">
 						<div class="slider-block__img">
-							<img src="<?php echo get_template_directory_uri();?>/img/materials/materials-slide-1/slide-1-1img.png" alt="">
+							<img src="<?php the_field('material_img'); ?>">
 						</div>
 						<!-- /.slider-slider__img -->
 						<div class="slider-block__name">
-							Пенопласт
+							<?php the_title(); ?>
 						</div>
 						<!-- /.slider-name -->
 						<div class="slider-block__price">
-							от 500 руб.
+							<?php the_field('material_price'); ?>
 						</div>
 						<!-- /.slider-price -->
 						<a class="slider-block__button">
@@ -262,83 +269,16 @@
 							<div class="slider-block__button_text">Купить</div>
 						</a>
 					</div>
-					<!-- /.slider-block -->
-					<div class="slider-block">
-						<div class="slider-block__img">
-							<img src="<?php echo get_template_directory_uri();?>/img/materials/materials-slide-2/slide-2-1img.png" alt="">
-						</div>
-						<!-- /.slider-slider__img -->
-						<div class="slider-block__name">
-							Пенокартон
-						</div>
-						<!-- /.slider-name -->
-						<div class="slider-block__price">
-							от 100 руб.
-						</div>
-						<!-- /.slider-price -->
-						<a class="slider-block__button">
-							<div class="slider-block__button_img"></div>
-							<div class="slider-block__button_text">Купить</div>
-						</a>
-					</div>
-					<!-- /.slider-block -->
-					<div class="slider-block">
-						<div class="slider-block__img">
-							<img src="<?php echo get_template_directory_uri();?>/img/materials/materials-slide-3/slide-3-1img.png" alt="">
-						</div>
-						<!-- /.slider-slider__img -->
-						<div class="slider-block__name">
-							ПВХ
-						</div>
-						<!-- /.slider-name -->
-						<div class="slider-block__price">
-							от 350 руб.
-						</div>
-						<!-- /.slider-price -->
-						<a class="slider-block__button">
-							<div class="slider-block__button_img"></div>
-							<div class="slider-block__button_text">Купить</div>
-						</a>
-					</div>
-					<!-- /.slider-block -->
-					<div class="slider-block">
-						<div class="slider-block__img">
-							<img src="<?php echo get_template_directory_uri();?>/img/materials/materials-slide-4/slide-4-1img.png" alt="">
-						</div>
-						<!-- /.slider-slider__img -->
-						<div class="slider-block__name">
-							Полистирол
-						</div>
-						<!-- /.slider-name -->
-						<div class="slider-block__price">
-							от 400 руб.
-						</div>
-						<!-- /.slider-price -->
-						<a class="slider-block__button">
-								<div class="slider-block__button_img"></div>
-								<div class="slider-block__button_text">Купить</div>
-						</a>
-					</div>
-					<!-- /.slider-block -->
-					<div class="slider-block">
-						<div class="slider-block__img">
-							<img src="<?php echo get_template_directory_uri();?>/img/materials/materials-slide-3/slide-3-1img.png" alt="">
-						</div>
-						<!-- /.slider-slider__img -->
-						<div class="slider-block__name">
-							ПВХ
-						</div>
-						<!-- /.slider-name -->
-						<div class="slider-block__price">
-							от 350 руб.
-						</div>
-						<!-- /.slider-price -->
-						<a class="slider-block__button">
-							<div class="slider-block__button_img"></div>
-							<div class="slider-block__button_text">Купить</div>
-						</a>
-					</div>
-					<!-- /.slider-block -->
+						<?php 
+					}
+				} else {
+					// Постов не найдено
+				}
+
+				wp_reset_postdata(); // Сбрасываем $post
+				?>
+
+					
 				</div>
 				<!-- /.slider -->
 			</div>
