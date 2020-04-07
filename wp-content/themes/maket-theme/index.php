@@ -196,25 +196,20 @@
 						<!-- /.col-8 -->
 										<!-- Форма на главной секции -->
 						<div class="col-12 col-md-10 col-lg-5 col-xl-4">
-							<form action="mailer/smart.php" method="POST" class="form">
-								<div class="form-main">
-									<div class="form-title">
-										Закажите макетные материалы 
-										прямо сейчас
-									</div>
-									<!-- /.form-title -->
-									<input type="text" name="user_name" class="form-input" placeholder="Ваше имя" required>
-									<input type="tel" name="user_phone" class="form-input input-phone" placeholder="Контактный телефон" required>
-									<textarea name="user_text" class="form-input form-textarea" placeholder="Какие материалы вам требуются?" cols="20" rows="3" required></textarea>
-									<button class="form-button" type="submit">Оставить заявку</button>
-									<div class="form-small">
-										Нажимая на кнопку оставить заявку
-										вы соглашаетесь с <div class="show-politic">политикой обработки данных</div>
-									</div>
-									<!-- /.small -->
+							<div class="form-main form">
+								<div class="form-title">
+									Закажите макетные материалы 
+									прямо сейчас
 								</div>
-							</form>
-							<!-- /.form -->
+								<!-- /.form-title -->
+								<?php echo do_shortcode( '[contact-form-7 id="61" title="main-form"]' ); ?>
+								<div class="form-small">
+									Нажимая на кнопку оставить заявку
+									вы соглашаетесь с <div class="show-politic">политикой обработки данных</div>
+								</div>
+								<!-- /.small -->
+							</div>
+
 						</div>
 						<!-- /.col-4 -->
 					</div>
@@ -278,7 +273,7 @@
 				wp_reset_postdata(); // Сбрасываем $post
 				?>
 
-					
+				
 				</div>
 				<!-- /.slider -->
 			</div>
